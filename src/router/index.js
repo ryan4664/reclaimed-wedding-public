@@ -6,6 +6,7 @@ import search from '@/components/Search'
 import ad from '@/components/Ad'
 import adList from '@/components/AdList'
 import about from '@/components/About'
+import recentlyAdded from '@/components/RecentlyAdded'
 import edit from '@/components/Edit'
 import success from '@/components/CreateSuccess'
 import vendors from '@/components/Vendors'
@@ -47,6 +48,10 @@ export default new Router({
     path: '/about-us',
     name: 'about',
     component: about
+  }, {
+    path: '/recently-added',
+    name: 'recently-added',
+    component: recentlyAdded
   }, {
     path: '/success',
     name: 'success',

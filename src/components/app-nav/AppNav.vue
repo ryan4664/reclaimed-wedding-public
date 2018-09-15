@@ -5,6 +5,7 @@
     <nav class="my-2 my-md-0 mr-md-3">
       <router-link  class="p-2 text-dark" href="#" to="/ad-list">Search</router-link>
       <router-link  class="p-2 text-dark" href="#" to="/create">Create an Ad</router-link>
+      <router-link  class="p-2 text-dark" href="#" to="/recently-added">Recently Added</router-link>
       <router-link  class="p-2 text-dark" href="#" to="/search">Your Ads</router-link>
       <router-link  class="p-2 text-dark" href="#" to="/vendors">Vendors</router-link>
       <router-link  class="p-2 text-dark" href="#" to="/vendor-application">Become A Vendor</router-link>
