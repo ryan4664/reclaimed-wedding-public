@@ -13,6 +13,12 @@ import VueGallery from 'vue-gallery'
 import './assets/custom.css'
 import Toasted from 'vue-toasted'
 
+import VueAnalytics from 'vue-analytics'
+
+Vue.use(VueAnalytics, {
+  id: 'UA-64030273-3'
+})
+
 const VueUploadComponent = require('vue-upload-component')
 
 const toastedOptions = {

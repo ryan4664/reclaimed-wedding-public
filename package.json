@@ -27,6 +27,7 @@
     "bootstrap": "^4.0.0-alpha.6",
     "bootstrap-vue": "^1.5.0",
     "vue": "^2.5.2",
+    "vue-analytics": "^5.16.0",
     "vue-awesome": "^2.3.4",
     "vue-button-spinner": "^2.2.0",
     "vue-croppa": "^1.3.6",
