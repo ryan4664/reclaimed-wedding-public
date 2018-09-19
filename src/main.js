@@ -16,7 +16,8 @@ import Toasted from 'vue-toasted'
 import VueAnalytics from 'vue-analytics'
 
 Vue.use(VueAnalytics, {
-  id: 'UA-64030273-3'
+  id: 'UA-64030273-3',
+  router
 })
 
 const VueUploadComponent = require('vue-upload-component')
