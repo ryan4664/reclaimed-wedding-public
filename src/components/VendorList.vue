@@ -19,7 +19,7 @@
             <p class="card-text">{{vendor.description}}</p>
             <div class="d-flex justify-content-between align-items-center">
               <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-outline-secondary" v-on:click="viewVendor(vendor._id)">>View</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary" v-on:click="viewVendor(vendor._id)">View</button>
               </div>
             </div>
           </div>
@@ -42,7 +42,7 @@ export default {
   },
   created: function() {
     this.vendorType = this.$props.type;
-    this.$http.get("/api/vendors/types/" + this.$props.type).then(response => {
+    this.$http.get("/api/vendorTypes/" + this.$props.type).then(response => {
       if (response.status === 200) {
         this.vendors = response.data;
       }

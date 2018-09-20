@@ -91,7 +91,7 @@ export default {
     };
   },
   created: function() {
-    this.$http.get("/api/vendortypes").then(response => {
+    this.$http.get("/api/vendorTypes").then(response => {
       if (response.status === 200) {
         this.vendorTypes = response.body;
       }
