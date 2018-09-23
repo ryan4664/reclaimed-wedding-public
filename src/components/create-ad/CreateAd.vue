@@ -103,7 +103,7 @@ export default {
       adLocations: [],
       agreesToTerms: false,
       dropzoneOptions: {
-        url: "https://httpbin.org/post",
+        url: "/api/tempUpload",
         thumbnailWidth: 150,
         maxFilesize: 10.5
       },
@@ -111,12 +111,12 @@ export default {
     };
   },
   created: function() {
-    this.$http.get("/api/ads/types").then(response => {
+    this.$http.get("/api/adTypes").then(response => {
       if (response.status === 200) {
         this.adTypes = response.body;
       }
     });
-    this.$http.get("/api/ads/locations").then(response => {
+    this.$http.get("/api/adLocations").then(response => {
       if (response.status === 200) {
         this.adLocations = response.body;
       }
