@@ -138,7 +138,7 @@ export default {
         },
         response => {
           this.errors = response.body;
-          this.$toasted.show('There were some erorrs with your post, please review and try again!')
+          this.$toasted.show('There were some errors with your post, please review and try again!')
           this.isSaving = false
         }
       );

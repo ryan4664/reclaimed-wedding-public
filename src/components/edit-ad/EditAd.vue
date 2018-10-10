@@ -146,7 +146,7 @@ export default {
           } else if (this.errors) {
             this.errors = response.body;
             this.$toasted.show(
-              "There were some erorrs with your post, please review and try again!"
+              "There were some errors with your post, please review and try again!"
             );
           }
         }
