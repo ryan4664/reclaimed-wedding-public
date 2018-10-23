@@ -1,5 +1,6 @@
 <template>
   <div class="container mt-4">
+    <loading-overlay v-if="isSaving"></loading-overlay>
     <div class="row">
       <div class="col-12">
         <h2 class="my-0">Submit Your Application</h2>
@@ -39,7 +40,7 @@
                   <textarea class="form-control" v-model="vendor.description"></textarea>
                 </div>
             </div>
-            <!-- <div class="row pt-3">
+            <div class="row pt-3">
               <div class="col-12 upload">
                 <ul>
                   <li v-for="(file, index) in files" :key="file.id">
@@ -56,7 +57,7 @@
                   <vue-dropzone ref="myVueDropzone" id="dropzone" :options="dropzoneOptions"></vue-dropzone>
                 </div>
               </div>
-            </div> -->
+            </div>
             <div class="row pt-3">
                 <div class="col text-right">
                     <button type="button" class="btn btn-primary" v-on:click="save" v-on:keyup.enter="save">Apply</button>
@@ -80,14 +81,29 @@
 </template>
 
 <script>
+import vueDropzone from "vue2-dropzone";
+import "vue2-dropzone/dist/vue2Dropzone.css";
+import LoadingOverlay from "./loading-overlay/LoadingOverlay.vue";
+
 export default {
   name: "vendor-application",
+  components: {
+    vueDropzone,
+    LoadingOverlay
+  },
   data() {
     return {
       vendor: {},
       errors: {},
       vendorTypes: [],
-      submitted: false
+      submitted: false,
+      files: [],
+      dropzoneOptions: {
+        url: "/api/tempUpload",
+        thumbnailWidth: 150,
+        maxFilesize: 10.5
+      },
+      isSaving: false
     };
   },
   created: function() {
@@ -99,10 +115,13 @@ export default {
   },
   methods: {
     save: function() {
+      this.vendor.files = this.$refs.myVueDropzone.getAcceptedFiles();
+      this.isSaving = true
       this.$http.post("/api/vendors/apply", this.vendor).then(
         response => {
           if (response.status === 200) {
-            this.submitted = true;
+            this.isSaving = false
+            this.submitted = true
           }
         },
         response => {
@@ -110,6 +129,7 @@ export default {
           this.$toasted.show(
             "There were some errors with your submission, please review and try again!"
           );
+          this.isSaving = false
         }
       );
     },
