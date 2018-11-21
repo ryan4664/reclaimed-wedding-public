@@ -61,12 +61,12 @@ export default new Router({
     name: 'vendors',
     component: vendors
   }, {
-    path: '/vendors/:type',
+    path: '/vendors/:_id',
     name: 'vendor-list',
     component: vendorList,
     props: true
   }, {
-    path: '/vendors/:type/:id',
+    path: '/vendors/:typeId/:vendorId',
     name: 'vendor-profile',
     component: vendorProfile,
     props: true

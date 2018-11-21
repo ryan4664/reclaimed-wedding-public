@@ -13,7 +13,7 @@
             <h3 class="card-text">{{vendorType.type}}</h3>
             <div class="d-flex justify-content-between align-items-center">
               <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-outline-secondary" v-on:click="viewVendors(vendorType.type)">View</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary" v-on:click="viewVendors(vendorType._id)">View</button>
               </div>
             </div>
           </div>
@@ -39,10 +39,10 @@ export default {
     });
   },
   methods: {
-    viewVendors: function(type) {
+    viewVendors: function(_id) {
       this.$router.push({
         name: "vendor-list",
-        params: { type: type }
+        params: { _id: _id }
       });
     }
   }
