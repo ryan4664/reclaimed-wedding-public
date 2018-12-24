@@ -35,7 +35,7 @@ export default {
     };
   },
   created: function() {
-    this.$http.get("/api/ads/types").then(response => {
+    this.$http.get("/api/adTypes").then(response => {
       if (response.status === 200) {
         this.adTypes = response.body;
       }

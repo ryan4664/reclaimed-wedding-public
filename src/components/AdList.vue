@@ -10,7 +10,7 @@
         <p>No ads found :(</p>
       </div>
     </div>
-  </div>  
+  </div>
 </template>
 
 <script>
@@ -51,11 +51,12 @@ export default {
       });
     },
     find: function(search) {
-      this.$http.get(`/api/ad/find?title=${search}`).then(
+      this.$http.post(`/api/ads/search`, { title: search }).then(
         response => {
-          this.ads = response.body;
+          this.ads = response.body.ads;
         },
         function(err) {
+          console.log("here")
           this.$toasted.show("Search term too small :(");
           this.ads = [];
         }

@@ -26,7 +26,8 @@ export default {
     };
   },
   created: function() {
-    this.$http.get("/api/ad/find?latest=true").then(response => {
+    this.$http.post(`/api/ads/search?latest=true`).then(response => {
+      console.log(response)
       if (response.status === 200) {
         this.ads = response.body;
       } else {

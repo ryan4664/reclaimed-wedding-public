@@ -44,7 +44,6 @@ export default {
     this.$http.get(`/api/vendors/${this.$props.vendorId}`).then(response => {
       if (response.status === 200) {
         this.vendor = response.data;
-        console.log(this.vendor);
       }
     });
   },
